@@ -1,0 +1,53 @@
+body {
+  font-size: 1rem;
+  margin: 0 auto;
+  width: 40%;
+  font-family: 'Cormorant Infant', serif;
+  counter-reset: heading;
+}
+
+.overview {
+  height: 100vh;
+  font-size: 30px;
+  counter-reset: chapter;
+}
+
+.overview h3 {
+  text-decoration: underline;
+}
+
+.overview h4::before {
+  counter-increment: chapter;
+  content: "Chapter " counter(chapter) ":  ";
+}
+
+.overview h4 {
+  margin-left: 40px;
+  counter-reset: subchapter;
+}
+
+.overview h6::before {
+  margin-left: 60px;
+  counter-increment: subchapter;
+  content: counter(chapter) "." counter(subchapter) ")";
+}
+
+h1::before {
+  counter-increment: heading;
+  content: "Chapter " counter(heading) ": ";
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+p {
+  height: 100vh;
+  line-height: 3.5;
+}
+
+p.chapter-1:first-letter {
+  font-size: 100px;
+  line-height: 1;
+  margin: 15px 15px 10px 0px;
+  display: block;
+  float: left;
+}
